@@ -1,0 +1,30 @@
+{
+  "name": "my-boilerplate",
+  "version": "1.0.0",
+  "description": "sample boilerplate",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vignesh-Kumar-Sony/my-boilerplate.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vignesh-Kumar-Sony/my-boilerplate/issues"
+  },
+  "homepage": "https://github.com/Vignesh-Kumar-Sony/my-boilerplate#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
+  },
+  "dependencies": {
+    "rimraf": "^5.0.7"
+  },
+  "bin": {
+    "create-boilerplate": "./generate-app.js"
+  }
+}
