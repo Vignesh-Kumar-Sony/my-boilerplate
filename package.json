@@ -2,11 +2,14 @@
   "name": "my-boilerplate",
   "version": "1.0.0",
   "description": "sample boilerplate",
-  "main": "index.js",
+  "main": "generate-app.js",
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "create-boilerplate": "./generate-app.js"
   },
   "repository": {
     "type": "git",
@@ -22,9 +25,9 @@
     "parcel-bundler": "^1.12.5"
   },
   "dependencies": {
+    "commander": "^12.1.0",
+    "ejs": "^3.1.10",
+    "fs-extra": "^11.2.0",
     "rimraf": "^5.0.7"
-  },
-  "bin": {
-    "create-boilerplate": "./generate-app.js"
   }
 }
