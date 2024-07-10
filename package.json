@@ -2,14 +2,15 @@
   "name": "my-boilerplate",
   "version": "1.0.0",
   "description": "sample boilerplate",
-  "main": "generate-app.js",
+  "main": "index.js",
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "configure": "node ./bin/index.js"
   },
   "bin": {
-    "create-boilerplate": "./generate-app.js"
+    "create-code": "./bin/index.js"
   },
   "repository": {
     "type": "git",
