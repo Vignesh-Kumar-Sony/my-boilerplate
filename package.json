@@ -10,7 +10,7 @@
     "configure": "node ./bin/index.js"
   },
   "bin": {
-    "create-code": "./bin/index.js"
+    "create-code": "./index.js"
   },
   "repository": {
     "type": "git",

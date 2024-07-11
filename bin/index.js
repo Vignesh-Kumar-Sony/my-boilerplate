@@ -13,8 +13,11 @@ if (process.argv.length < 3) {
 
 const projectName = process.argv[2];
 const currentPath = process.cwd();
-const projectPath = path.join(currentPath, projectName);
+// const projectPath = path.join(currentPath, projectName);
+const projectPath = projectName
 const git_repo = "https://github.com/Vignesh-Kumar-Sony/Application-Starter.git";
+// const git_repo = "https://github.com/vinay-shivashankar-sony/EOLSupport.git";
+
 
 
 try {
@@ -31,16 +34,27 @@ try {
 async function main() {
   try {
     console.log('Downloading files...');
-    execSync(`git clone --depth 1 ${git_repo} ${projectPath}`);
+    var exeCommand = `git clone --depth 1 ${git_repo} ${projectPath}`
+    console.log(currentPath, projectName)
+    console.log(exeCommand)
+    execSync(exeCommand);
 
     process.chdir(projectPath);
 
+    console.log('Initializing npm...');
+    execSync('npm init -y', { stdio: 'inherit' });
+    
     console.log('Installing dependencies...');
     execSync('npm install');
+    console.log('packages installed');
 
     console.log('Removing useless files');
     execSync('npx rimraf ./.git');
-    fs.rmdirSync(path.join(projectPath, 'bin'), { recursive: true});
+    console.log('rimraf installed');
+
+    console.log(path.join(projectPath, 'bin'))
+    
+    // fs.rmdirSync(path.join(projectPath, 'bin'), { recursive: true});
 
     console.log('The installation is done, this is ready to use !');
 
@@ -49,8 +63,3 @@ async function main() {
   }
 }
 main();
-
-
-// "bin": {
-//   "create-code": "node C:/Users/7000035601/Desktop/WORK/Scaffolding/Project_Boilerplate/my-boilerplate/bin/index.js"
-// },
