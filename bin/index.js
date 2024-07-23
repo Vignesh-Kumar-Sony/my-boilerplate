@@ -15,8 +15,9 @@ const projectName = process.argv[2];
 const currentPath = process.cwd();
 // const projectPath = path.join(currentPath, projectName);
 const projectPath = projectName
-const git_repo = "https://github.com/Vignesh-Kumar-Sony/Application-Starter.git";
-// const git_repo = "https://github.com/vinay-shivashankar-sony/EOLSupport.git";
+// const git_repo = "https://github.com/Vignesh-Kumar-Sony/Application-Starter.git";
+const git_repo = "https://github.com/Vignesh-Kumar-Sony/C---Sample-Project.git";
+
 
 
 
@@ -41,18 +42,31 @@ async function main() {
 
     process.chdir(projectPath);
 
-    console.log('Initializing npm...');
-    execSync('npm init -y', { stdio: 'inherit' });
+    // Executable code
+    // console.log('Initializing npm...');
+    // execSync('npm init -y', { stdio: 'inherit' });
+    
+    // console.log('Installing dependencies...');
+    // execSync('npm install');
+    // console.log('packages installed');
+
+    // console.log('Removing useless files');
+    // execSync('npx rimraf ./.git');
+    // console.log('rimraf installed');
+
+    //Executable code for C Program
+
+    console.log('Initializing build...');
+    execSync('cmake -Bbuild', { stdio: 'inherit' });
     
     console.log('Installing dependencies...');
-    execSync('npm install');
-    console.log('packages installed');
+    execSync('cmake --build build');
 
-    console.log('Removing useless files');
-    execSync('npx rimraf ./.git');
-    console.log('rimraf installed');
+    console.log('The installation is done, this is ready to use !');
+    console.log('To Run executable file use "./build/TimeStub" CLI command');
+  
 
-    console.log(path.join(projectPath, 'bin'))
+    // console.log(path.join(projectPath, 'bin'))
     
     // fs.rmdirSync(path.join(projectPath, 'bin'), { recursive: true});
 
