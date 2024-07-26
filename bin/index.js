@@ -103,24 +103,8 @@ if (process.argv.length < 3) {
 const projectName = process.argv[2];
 const currentPath = process.cwd();
 const projectPath = path.join(currentPath, 'templateOutput', projectName);
-const localFolderPath = path.join(currentPath, 'bin', 'C---Sample-Project'); // Path to your local folder
+const localFolderPath = path.join(currentPath, 'bin', 'Edge_App_Source_Code/classification-sample'); // Path to your local folder
 let zipFilePath;
-
-// try {
-//   fs.mkdirSync(projectName)
-//   // Check if the project directory already exists
-//   if (fs.existsSync(projectPath)) {
-//     console.log(`The project ${projectName} already exists in the current directory, please give it another name.`);
-//     process.exit(1);
-//   }
-
-//   // Copy the local folder to the new project directory
-//   fs.copySync(localFolderPath, projectPath);
-//   console.log(`Copied ${localFolderPath} to ${projectPath}`);
-// } catch (err) {
-//   console.log(`Error while copying folder: ${err}`);
-//   process.exit(1);
-// }
 
 try {
   fs.mkdirSync(projectPath)
@@ -140,14 +124,14 @@ async function main() {
   try {
     process.chdir(projectPath);
 
-    console.log('Initializing build...');
-    execSync('cmake -Bbuild', { stdio: 'inherit' });
+    // console.log('Initializing build...');
+    // execSync('cmake -Bbuild', { stdio: 'inherit' });
 
-    console.log('Installing dependencies...');
-    execSync('cmake --build build', { stdio: 'inherit' });
+    // console.log('Installing dependencies...');
+    // execSync('cmake --build build', { stdio: 'inherit' });
 
-    console.log('The installation is done, this is ready to use!');
-    console.log('To Run executable file use "./build/TimeStub" CLI command');
+    // console.log('The installation is done, this is ready to use!');
+    // console.log('To Run executable file use "./build/TimeStub" CLI command');
 
     console.log('Zipping the project directory...');
     console.log("projectName"+projectName+"   currentPath"+projectName);
@@ -156,7 +140,6 @@ async function main() {
     console.log(`Created zip file: ${path.join(currentPath, `${projectName}.zip`)}`);
     zipFilePath = path.join(currentPath, `templateOutput/${projectName}/${projectName}.zip`)
     console.log(zipFilePath);
-    window.location.href = zipFilePath;
   } catch (error) {
     console.log(error);
   }
